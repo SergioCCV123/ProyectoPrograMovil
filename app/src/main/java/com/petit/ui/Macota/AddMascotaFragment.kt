@@ -35,8 +35,8 @@ class AddMascotaFragment : Fragment() {
         mascotaViewModel = ViewModelProvider(this)[MascotaViewModel::class.java]
         _binding = FragmentAddMascotaBinding.inflate(inflater,container,false)
 
-        binding.btActualizar.setOnClickListener{
-            insertarMascota()
+        binding.btAgregar.setOnClickListener{
+            insertarLugar()
         }
 
         ubicaGPS()
@@ -84,7 +84,7 @@ class AddMascotaFragment : Fragment() {
         }*/
     }
 
-    private fun insertarMascota() {
+    private fun insertarLugar() {
         val nombre = binding.etNombre.text.toString()
         val edad = binding.etEdad.text.toString()
         val raza = binding.etRaza.text.toString()

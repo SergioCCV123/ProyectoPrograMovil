@@ -71,7 +71,7 @@ class MascotaDao {
     }
 
 
-    suspend fun deleteMascota(mascota: Mascotas){
+    fun deleteMascota(mascota: Mascotas){
         if(mascota.id.isNotEmpty()){
             firestrore
                 .collection("MascotasApp")
