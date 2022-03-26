@@ -1,4 +1,4 @@
-package com.petit.ui.Macota
+package com.petit.ui.gallery
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -20,7 +20,7 @@ import com.petit.model.Mascotas
 import com.petit.viewModel.MascotaViewModel
 
 
-class AddMascotaFragment : Fragment() {
+class AddPaseoFragment : Fragment() {
 
 
     private lateinit var mascotaViewModel: MascotaViewModel

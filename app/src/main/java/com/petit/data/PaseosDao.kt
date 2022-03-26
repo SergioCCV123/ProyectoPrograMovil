@@ -8,8 +8,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.ktx.Firebase
 import com.petit.model.Mascotas
+import com.petit.model.Paseos
 
-class MascotaDao {
+class PaseosDao {
     private var codigoUsuario: String
     private var firestrore: FirebaseFirestore
 
@@ -21,69 +22,69 @@ class MascotaDao {
         firestrore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
-    fun getAllData() : MutableLiveData<List<Mascotas>> {
-        val listaMascotas =  MutableLiveData<List<Mascotas>>()
-        firestrore.collection("MascotasApp")
+    fun getAllData() : MutableLiveData<List<Paseos>> {
+        val listaPaseos =  MutableLiveData<List<Paseos>>()
+        firestrore.collection("PaseosApp")
             .document(codigoUsuario)
-            .collection("misMascotas")
+            .collection("misPaseos")
             .addSnapshotListener{snapshot, e ->
                 if(e != null){
                     return@addSnapshotListener
                 }
                 if(snapshot != null){
-                    val lista = ArrayList<Mascotas>()
-                    val mascotas = snapshot.documents
-                    mascotas.forEach{
-                        val mascota = it.toObject(Mascotas::class.java)
-                        if(mascota!= null){
-                            lista.add(mascota)
+                    val lista = ArrayList<Paseos>()
+                    val paseos = snapshot.documents
+                    paseos.forEach{
+                        val paseos = it.toObject(Paseos::class.java)
+                        if(paseos!= null){
+                            lista.add(paseos)
                         }
                     }
-                    listaMascotas.value = lista
+                    listaPaseos.value = lista
                 }
             }
-        return listaMascotas
+        return listaPaseos
     }
 
 
-    fun saveMascotas(mascota: Mascotas){
+    fun savePaseos(paseos: Paseos){
         val document: DocumentReference
-        if(mascota.id.isEmpty()){
+        if(paseos.id.isEmpty()){
             document = firestrore
-                .collection("MascotasApp")
+                .collection("PaseosApp")
                 .document(codigoUsuario)
-                .collection("misMascotas")
+                .collection("misPaseos")
                 .document()
-            mascota.id = document.id
+            paseos.id = document.id
         }else{
-            document = firestrore.collection("MascotasApp")
+            document = firestrore.collection("PaseosApp")
                 .document(codigoUsuario)
-                .collection("misMascotas")
-                .document(mascota.id)
+                .collection("misPaseos")
+                .document(paseos.id)
         }
-        val set = document.set(mascota)
+        val set = document.set(paseos)
         set.addOnSuccessListener {
-            Log.d("AddMascota","Mascota Agregada")
+            Log.d("AddPaseos","Paseos Agregada")
         }
             .addOnCanceledListener {
-                Log.e("AddMascota","Mascota NO Agregada")
+                Log.e("AddPaseos","Paseos NO Agregada")
             }
     }
 
 
-    suspend fun deleteMascota(mascota: Mascotas){
-        if(mascota.id.isNotEmpty()){
+    suspend fun deletePaseos(paseos: Paseos){
+        if(paseos.id.isNotEmpty()){
             firestrore
-                .collection("MascotasApp")
+                .collection("PaseosApp")
                 .document(codigoUsuario)
-                .collection("misMascotas")
-                .document(mascota.id)
+                .collection("misPaseos")
+                .document(paseos.id)
                 .delete()
                 .addOnSuccessListener {
-                    Log.d("deleteMascota", "Mascota eliminada")
+                    Log.d("deletePaseos", "Paseos eliminada")
                 }
                 .addOnCanceledListener {
-                    Log.e("deleteMascota", "Mascota NO eliminada")
+                    Log.e("deletePaseos", "Paseos NO eliminada")
                 }
         }
     }
