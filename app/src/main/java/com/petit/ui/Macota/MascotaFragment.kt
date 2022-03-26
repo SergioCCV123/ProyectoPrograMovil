@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.petit.R
+import com.petit.adapter.MascotaAdapter
 import com.petit.databinding.FragmentMascotaBinding
 import com.petit.viewModel.MascotaViewModel
 

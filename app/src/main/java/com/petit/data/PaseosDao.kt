@@ -72,7 +72,7 @@ class PaseosDao {
     }
 
 
-    suspend fun deletePaseos(paseos: Paseos){
+    fun deletePaseos(paseos: Paseos){
         if(paseos.id.isNotEmpty()){
             firestrore
                 .collection("PaseosApp")
