@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_nav_pets_to_addMascotaFragment"
             app:destination="@id/addMascotaFragment" />
-        <action
-            android:id="@+id/action_nav_pets_to_updateMascotaFragment"
-            app:destination="@id/updateMascotaFragment" />
     </fragment>
 
     <fragment
@@ -32,22 +29,10 @@
     <fragment
         android:id="@+id/addMascotaFragment"
         android:name="com.petit.ui.Macota.AddMascotaFragment"
-        android:label="@string/bt_agregar"
+        android:label="fragment_add_mascota"
         tools:layout="@layout/fragment_add_mascota" >
         <action
             android:id="@+id/action_addMascotaFragment_to_nav_pets"
             app:destination="@id/nav_pets" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateMascotaFragment"
-        android:name="com.petit.ui.Macota.UpdateMascotaFragment"
-        android:label="@string/bt_actualizar"
-        tools:layout="@layout/fragment_update_mascota" >
-        <action
-            android:id="@+id/action_updateMascotaFragment_to_nav_pets"
-            app:destination="@id/nav_pets" />
-        <argument
-            android:name="mascota"
-            app:argType="com.petit.model.Mascotas" />
     </fragment>
 </navigation>
