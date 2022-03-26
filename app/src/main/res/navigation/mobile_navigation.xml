@@ -13,13 +13,23 @@
         <action
             android:id="@+id/action_nav_pets_to_addMascotaFragment"
             app:destination="@id/addMascotaFragment" />
+        <action
+            android:id="@+id/action_nav_pets_to_updateMascotaFragment"
+            app:destination="@id/updateMascotaFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.petit.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.petit.ui.gallery.PaseoFragment"
+        android:label="@string/menu_paseos"
+        tools:layout="@layout/fragment_paseos" >
+        <action
+            android:id="@+id/action_nav_gallery_to_addPaseoFragment"
+            app:destination="@id/addPaseoFragment" />
+        <action
+            android:id="@+id/action_nav_gallery_to_updatePaseoFragment"
+            app:destination="@id/updatePaseoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -29,10 +39,41 @@
     <fragment
         android:id="@+id/addMascotaFragment"
         android:name="com.petit.ui.Macota.AddMascotaFragment"
-        android:label="fragment_add_mascota"
+        android:label="@string/bt_agregar"
         tools:layout="@layout/fragment_add_mascota" >
         <action
             android:id="@+id/action_addMascotaFragment_to_nav_pets"
             app:destination="@id/nav_pets" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateMascotaFragment"
+        android:name="com.petit.ui.Macota.UpdateMascotaFragment"
+        android:label="@string/bt_actualizar"
+        tools:layout="@layout/fragment_update_mascota" >
+        <action
+            android:id="@+id/action_updateMascotaFragment_to_nav_pets"
+            app:destination="@id/nav_pets" />
+        <argument
+            android:name="mascota"
+            app:argType="com.petit.model.Mascotas" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPaseoFragment"
+        android:name="com.petit.ui.gallery.AddPaseoFragment"
+        android:label="AddPaseoFragment" >
+        <action
+            android:id="@+id/action_addPaseoFragment_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePaseoFragment"
+        android:name="com.petit.ui.gallery.UpdatePaseoFragment"
+        android:label="UpdatePaseoFragment" >
+        <action
+            android:id="@+id/action_updatePaseoFragment_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+        <argument
+            android:name="paseos"
+            app:argType="com.petit.model.Paseos" />
     </fragment>
 </navigation>

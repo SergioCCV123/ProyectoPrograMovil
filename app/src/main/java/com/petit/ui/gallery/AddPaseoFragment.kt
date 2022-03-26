@@ -1,4 +1,4 @@
-package com.petit.ui.Macota
+package com.petit.ui.gallery
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -15,16 +15,16 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.petit.R
-import com.petit.databinding.FragmentAddMascotaBinding
-import com.petit.model.Mascotas
-import com.petit.viewModel.MascotaViewModel
+import com.petit.databinding.FragmentAddPaseoBinding
+import com.petit.model.Paseos
+import com.petit.viewModel.PaseosViewModel
 
 
-class AddMascotaFragment : Fragment() {
+class AddPaseoFragment : Fragment() {
 
 
-    private lateinit var mascotaViewModel: MascotaViewModel
-    private var _binding: FragmentAddMascotaBinding? = null
+    private lateinit var paseosViewModel: PaseosViewModel
+    private var _binding: FragmentAddPaseoBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -32,11 +32,11 @@ class AddMascotaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        mascotaViewModel = ViewModelProvider(this)[MascotaViewModel::class.java]
-        _binding = FragmentAddMascotaBinding.inflate(inflater,container,false)
+        paseosViewModel = ViewModelProvider(this)[PaseosViewModel::class.java]
+        _binding = FragmentAddPaseoBinding.inflate(inflater,container,false)
 
         binding.btActualizar.setOnClickListener{
-            insertarMascota()
+            insertarPaseo()
         }
 
         ubicaGPS()
@@ -84,15 +84,16 @@ class AddMascotaFragment : Fragment() {
         }*/
     }
 
-    private fun insertarMascota() {
+    private fun insertarPaseo() {
         val nombre = binding.etNombre.text.toString()
-        val edad = binding.etEdad.text.toString()
-        val raza = binding.etRaza.text.toString()
+        val hInicio = binding.etHInicial.text.toString()
+        val hFinal = binding.etHFinal.text.toString()
+        val Total = binding.etEdad.text.toString()
 
-        val mascota = Mascotas("",nombre,edad,raza,"","")
-        mascotaViewModel.addMascota(mascota)
-        Toast.makeText(requireContext(),getString(R.string.msg_agregar), Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_addMascotaFragment_to_nav_pets)
+        val paseo = Paseos("",nombre,0.0,0.0,0.0,hInicio,hFinal,Total)
+        paseosViewModel.addPaseo(paseo)
+        Toast.makeText(requireContext(),getString(R.string.msg_agregarP), Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_addPaseoFragment_to_nav_gallery)
 
     }
 

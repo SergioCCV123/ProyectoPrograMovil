@@ -20,8 +20,8 @@ class MascotaAdapter : RecyclerView.Adapter<MascotaAdapter.MascotaViewHolder>() 
 
         fun bind(mascota: Mascotas){
             itemBinding.tvNombre.text = mascota.nombre
-            itemBinding.tvEdad.text = mascota.edad
-            itemBinding.tvRaza.text = mascota.raza
+            itemBinding.tvLlegada.text = mascota.edad
+            itemBinding.tvSalida.text = mascota.raza
             itemBinding.vistaFila.setOnClickListener{
                 val action = MascotaFragmentDirections
                     .actionNavPetsToUpdateMascotaFragment(mascota)

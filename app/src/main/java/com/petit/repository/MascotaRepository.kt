@@ -15,7 +15,7 @@ class MascotaRepository (private val mascotaDao : MascotaDao) {
         mascotaDao.saveMascotas(mascota)
     }
     fun deleteMascota(mascota: Mascotas){
-        mascotaDao.saveMascotas(mascota)
+        mascotaDao.deleteMascota(mascota)
     }
 
 }

@@ -33,7 +33,7 @@
         tools:text="@string/msg_raza" />
 
     <Button
-        android:id="@+id/btAgregar"
+        android:id="@+id/btActualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bt_agregar" />
