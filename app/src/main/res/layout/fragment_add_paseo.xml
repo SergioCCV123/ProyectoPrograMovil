@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="false"
     android:orientation="vertical"
-    tools:context=".ui.gallery.AddPaseoFragment" >
+    tools:context=".ui.gallery.AddPaseoFragment">
 
     <EditText
         android:id="@+id/etNombre"
@@ -26,25 +27,27 @@
             android:layout_width="198dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/msg_nombre"
+            android:hint="@string/msg_hInicio"
             android:inputType="textPersonName"
-            tools:text="@string/msg_hEntrada" />
+            tools:text="@string/msg_hInicio" />
 
         <EditText
             android:id="@+id/etHFinal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/msg_nombre"
+            android:hint="@string/msg_hFinal"
             android:inputType="textPersonName"
-            tools:text="@string/msg_hSalida" />
+            tools:text="@string/msg_hFinal" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/etTotal"
+        android:id="@+id/etEdad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:enabled="true"
+        android:focusable="false"
         android:hint="@string/msg_total"
         android:inputType="number" />
 
