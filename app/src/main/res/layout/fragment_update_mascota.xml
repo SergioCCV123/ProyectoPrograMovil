@@ -16,7 +16,7 @@
         tools:text="@string/msg_nombre" />
 
     <EditText
-        android:id="@+id/etEdad"
+        android:id="@+id/etTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,7 +24,7 @@
         android:inputType="number" />
 
     <EditText
-        android:id="@+id/etRaza"
+        android:id="@+id/Costo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.Macota.AddMascotaFragment" >
+    tools:context=".ui.gallery.UpdatePaseoFragment" >
 
     <EditText
         android:id="@+id/etNombre"
@@ -36,6 +36,6 @@
         android:id="@+id/btActualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bt_agregar" />
+        android:text="@string/bt_actualizar" />
 
 </LinearLayout>
