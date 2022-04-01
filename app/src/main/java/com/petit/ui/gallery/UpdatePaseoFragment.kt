@@ -81,15 +81,16 @@ class UpdatePaseoFragment : Fragment() {
         val telefono = "71223417"
         if(telefono.isNotEmpty()){
             val intent = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse(("tel:$telefono"))
+            intent.data = Uri.parse("tel:$telefono")
             if(requireActivity().checkSelfPermission(Manifest.permission.CALL_PHONE) !=
-                PackageManager.PERMISSION_DENIED){
-                requireActivity().requestPermissions(arrayOf(Manifest.permission.CALL_PHONE),105)
+                PackageManager.PERMISSION_GRANTED){
+                    requireActivity().requestPermissions(arrayOf(Manifest.permission.CALL_PHONE),105)
             }else{
                 requireActivity().startActivity(intent)
             }
         }else{
-            Toast.makeText(requireContext(),getString(R.string.msg_datos),Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(),
+                getString(R.string.msg_datos),Toast.LENGTH_LONG).show()
         }
     }
 

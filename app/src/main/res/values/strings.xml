@@ -52,6 +52,8 @@
     <string name="error">Error</string>
     <string name="msg_actualizarP">Paseo Actualizado</string>
     <string name="msg_agregarP">Paseo Agregado</string>
+    <string name="register">Registrarse</string>
+    <string name="Login">Iniciar Sesión</string>
 
 
 </resources>
