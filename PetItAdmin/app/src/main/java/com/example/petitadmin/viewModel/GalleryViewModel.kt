@@ -1,4 +1,4 @@
-package com.example.petitadmin.ui.gallery
+package com.example.petitadmin.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
