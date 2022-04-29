@@ -14,7 +14,9 @@ data class Paseos(
     val horaSalida:String?,
     val horaLlegada:String?,
     val Costo:String?,
+    val estado: Boolean,
+    val usuario: String,
 ) : Parcelable {
     constructor() :
-            this("", "", 0.0,0.0,0.0,"", "", "")
+            this("", "", 0.0,0.0,0.0,"", "", "", false, "")
 }

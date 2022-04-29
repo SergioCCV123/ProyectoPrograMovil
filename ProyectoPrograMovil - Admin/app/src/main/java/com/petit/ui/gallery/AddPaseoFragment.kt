@@ -90,7 +90,7 @@ class AddPaseoFragment : Fragment() {
         val hFinal = binding.etHFinal.text.toString()
         val Total = binding.etEdad.text.toString()
 
-        val paseo = Paseos("",nombre,0.0,0.0,0.0,hInicio,hFinal,Total)
+        val paseo = Paseos("",nombre,0.0,0.0,0.0,hInicio,hFinal,Total,false,"")
         paseosViewModel.addPaseo(paseo)
         Toast.makeText(requireContext(),getString(R.string.msg_agregarP), Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_addPaseoFragment_to_nav_gallery)
