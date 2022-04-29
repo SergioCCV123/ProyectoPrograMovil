@@ -4,39 +4,47 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.petitadmin.databinding.FragmentHomeBinding
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.petitadmin.R
+import com.example.petitadmin.adapter.PaseosAdapter
+import com.example.petitadmin.databinding.FragmentPaseosBinding
+import com.example.petitadmin.viewModel.PaseosViewModel
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private lateinit var paseoViewModel: PaseosViewModel
+    private var _binding: FragmentPaseosBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        paseoViewModel = ViewModelProvider(this)[PaseosViewModel::class.java]
+        _binding = FragmentPaseosBinding.inflate(inflater,container,false)
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        //Activar el RecycleView
+        val paseoAdapter = PaseosAdapter()
+        val recicdlador = binding.reciclador
+        recicdlador.adapter = paseoAdapter
+        recicdlador.layoutManager= LinearLayoutManager(requireContext())
+
+        paseoViewModel = ViewModelProvider(this)[PaseosViewModel::class.java]
+
+        paseoViewModel.getAllData.observe(viewLifecycleOwner){ paseos->
+            paseoAdapter.setData(paseos)
         }
-        return root
+
+        return binding.root
+
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy(){
+        super.onDestroy()
         _binding = null
     }
 }

@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.petitadmin.databinding.PaseoFileBinding
 import com.example.petitadmin.model.Paseos
+import com.example.petitadmin.ui.home.HomeFragmentDirections
 
 class PaseosAdapter : RecyclerView.Adapter<PaseosAdapter.PaseosViewHolder>(){
 
@@ -15,12 +17,11 @@ class PaseosAdapter : RecyclerView.Adapter<PaseosAdapter.PaseosViewHolder>(){
 
         fun bind(paseo: Paseos){
             itemBinding.tvNombre.text = paseo.nombreMascota
-            itemBinding.tvSalida.text = paseo.horaSalida
-            itemBinding.tvLlegada.text = paseo.horaLlegada
-            itemBinding.tvCosto.text = paseo.Costo.toString()
+            itemBinding.tvId.text = paseo.horaSalida
+            itemBinding.tvMascota.text = paseo.horaLlegada
+            itemBinding.tvEstado.text = paseo.Costo.toString()
             itemBinding.vistaFila.setOnClickListener{
-                val action = PaseoFragmentDirections
-                    .actionNavGalleryToUpdatePaseoFragment(paseo)
+                val action = HomeFragmentDirections.actionNavHomeToUpdatePaseos(paseo)
                 itemView.findNavController().navigate(action)
             }
         }

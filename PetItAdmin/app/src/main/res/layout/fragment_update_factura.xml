@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".update_factura">
+
+    <EditText
+        android:id="@+id/etCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="cliente"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/etMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="mascota"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/ettotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="total"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etdetalle"
+        android:layout_width="match_parent"
+        android:layout_height="213dp"
+        android:gravity="top"
+        android:hint="descripción"
+        android:inputType="text|textMultiLine" />
+
+    <Switch
+        android:id="@+id/etEstado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pago" />
+
+    <Button
+        android:id="@+id/btActualizar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AGREGAR" />
+
+</LinearLayout>

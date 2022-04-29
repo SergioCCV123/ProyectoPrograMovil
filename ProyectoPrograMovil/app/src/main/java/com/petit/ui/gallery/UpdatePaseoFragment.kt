@@ -37,8 +37,8 @@ class UpdatePaseoFragment : Fragment() {
         _binding = FragmentUpdatePaseoBinding.inflate(inflater,container,false)
 
         binding.etNombre2.setText(args.paseos.nombreMascota)
-        binding.etHFinal.setText(args.paseos.horaLlegada)
-        binding.etHInicial.setText(args.paseos.horaSalida)
+        binding.etHoraF.setText(args.paseos.horaLlegada)
+        binding.etHoraI.setText(args.paseos.horaSalida)
         binding.etTotal2.setText(args.paseos.Costo.toString())
 
         binding.btActualizar.setOnClickListener{updatePaseos()}
@@ -109,8 +109,8 @@ class UpdatePaseoFragment : Fragment() {
 
     private fun updatePaseos() {
         val nombre = binding.etNombre2.text.toString()
-        val hInicial = binding.etHInicial.text.toString()
-        val hFinal = binding.etHFinal.text.toString()
+        val hInicial = binding.etHoraF.text.toString()
+        val hFinal = binding.etHoraI.text.toString()
         val total = binding.etTotal2.text.toString().toDouble()
 
         val paseo = Paseos(args.paseos.id,nombre,0.0,0.0,0.0,hInicial,hFinal,total, false, "")
@@ -127,8 +127,8 @@ class UpdatePaseoFragment : Fragment() {
             findNavController().navigate(R.id.action_updatePaseoFragment_to_nav_gallery)
         }
         builder.setNegativeButton(getString(R.string.no)){_,_ ->}
-        builder.setTitle(R.string.menu_delete)
-        builder.setMessage(getString(R.string.msg_segruro_brorrar)+" ${args.paseos.nombreMascota}")
+        builder.setTitle(R.string.menu_deleteA)
+        builder.setMessage(getString(R.string.msg_segruro_brorrarA)+" ${args.paseos.nombreMascota}")
         builder.show()
     }
 
