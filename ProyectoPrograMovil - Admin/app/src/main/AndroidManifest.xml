@@ -17,9 +17,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logoadmin"
+        android:icon="@drawable/logocliente"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logoadmin"
+        android:roundIcon="@drawable/logocliente"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetIt">
         <activity
