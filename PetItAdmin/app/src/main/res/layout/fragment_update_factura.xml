@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".update_factura">
+    tools:context=".ui.gallery.update_factura">
 
     <EditText
         android:id="@+id/etCliente"

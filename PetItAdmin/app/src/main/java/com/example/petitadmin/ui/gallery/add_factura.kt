@@ -1,60 +1,108 @@
 package com.example.petitadmin.ui.gallery
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.core.app.ActivityCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.petitadmin.R
+import com.example.petitadmin.databinding.FragmentAddFacturaBinding
+import com.example.petitadmin.model.Factura
+import com.example.petitadmin.viewModel.GalleryViewModel
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [add_factura.newInstance] factory method to
- * create an instance of this fragment.
- */
 class add_factura : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var tomarFotoActivity: ActivityResultLauncher<Intent>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var facturViewModel: GalleryViewModel
+    private var _binding: FragmentAddFacturaBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_factura, container, false)
+    ): View {
+
+        facturViewModel = ViewModelProvider(this)[facturViewModel::class.java]
+        _binding = FragmentAddFacturaBinding.inflate(inflater,container,false)
+
+        binding.btActualizar3.setOnClickListener{
+            insertarFactura()
+        }
+
+
+
+        ubicaGPS()
+
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment add_factura.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            add_factura().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+    // var para saber si tengo permisos
+    private var conPermisos:Boolean=true
+    private fun ubicaGPS() {
+        val fusedLocationClient: FusedLocationProviderClient =
+            LocationServices.getFusedLocationProviderClient(requireContext())
+
+        if(ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) !=
+            PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) !=
+            PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ),
+                105
+            )
+
+
+        }
+
+        /*if(conPermisos){
+            fusedLocationClient.lastLocation.addOnSuccessListener { location: Location?  ->
+                if(location != null){
+                    binding.tvLatitud.text = "${location.latitude}"
+                    binding.tvLongitud.text = "${location.longitude}"
+                    binding.tvAltura.text = "${location.altitude}"
+                }else{
+                    binding.tvLatitud.text = getString(R.string.error)
+                    binding.tvLongitud.text = getString(R.string.error)
+                    binding.tvAltura.text= getString(R.string.error)
                 }
+
             }
+        }*/
+    }
+
+    private fun insertarFactura() {
+        val nombre = binding.etCliente2.text.toString()
+        val estado = false
+        val mascota = binding.etMascota2.text.toString()
+        val detalle = binding.etdetalle2.text.toString()
+        val total = binding.ettotal2.text.toString().toDouble()
+
+        val factura = Factura("",nombre,mascota,total,detalle,estado)
+        facturViewModel.addFactura(factura)
+        Toast.makeText(requireContext(),getString(R.string.msg_agregar), Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_add_factura_to_nav_gallery)
+
+    }
+
+    override fun onDestroy(){
+        super.onDestroy()
+        _binding = null
     }
 }
