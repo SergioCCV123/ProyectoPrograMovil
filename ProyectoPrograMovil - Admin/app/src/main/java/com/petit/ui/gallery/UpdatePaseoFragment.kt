@@ -112,7 +112,7 @@ class UpdatePaseoFragment : Fragment() {
         val hFinal = binding.etHFinal.text.toString()
         val total = binding.etTotal2.text.toString()
 
-        val paseo = Paseos(args.paseos.id,nombre,0.0,0.0,0.0,hInicial,hFinal,total)
+        val paseo = Paseos(args.paseos.id,nombre,0.0,0.0,0.0,hInicial,hFinal,total,false,"")
         paseoViewModel.updatePaseo(paseo)
         Toast.makeText(requireContext(),getString(R.string.msg_actualizarP),Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_updatePaseoFragment_to_nav_gallery)
