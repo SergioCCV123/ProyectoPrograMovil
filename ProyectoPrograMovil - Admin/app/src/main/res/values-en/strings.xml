@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PetIt</string>
+
+    <string name="tv_correo">Mail</string>
+    <string name="tv_clave">Password</string>
+    <string name="title_activity_principal">Main</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_pets">Pets</string>
+    <string name="menu_paseos">Rides</string>
+    <string name="menu_slideshow">Slideshow</string>
+    TODO: Remove or change this placeholder text
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="msg_nombre">Pet\'s name</string>
+    <string name="msg_edad">Pet\'s age</string>
+    <string name="msg_hInicio">Start time</string>
+    <string name="msg_hFinal">Finish time</string>
+    <string name="msg_raza">pet breed</string>
+    <string name="msg_total">TOTAL</string>
+    <string name="bt_agregar">Add pet</string>
+    <string name="bt_actualizar">Update mascota</string>
+    <string name="bt_google">Log in with Google</string>
+
+    <string name="msg_agregar">Pet Added</string>
+    <string name="msg_actualizar">Pet Updated</string>
+    <string name="menu_delete">Delete Pet</string>
+    <string name="si">yes</string>
+    <string name="msg_segruro_brorrar">¿Are you sure to delete?</string>
+    <string name="no">no</string>
+
+    <string name="msg_enviar_correo">Send a mail</string>
+    <string name="msg_phone_call">Make a call</string>
+    <string name="msg_whatsapp_send">Send a WhatsApp message</string>
+    <string name="msg_web_view">Open web site</string>
+    <string name="msg_map_view">See your pet</string>
+    <string name="tv_latitud_lb">Latitude</string>
+    <string name="tv_longitud_lb">Length</string>
+    <string name="tv_altura_lb">Height</string>
+    <string name="msg_saludos">Greetings friends</string>
+    <string name="msg_mensaje_correo">-</string>
+    <string name="msg_datos">Miss data</string>
+    <string name="msg_firebase_add">Document Added</string>
+    <string name="msg_firebase_no_add">Document no Added</string>
+    <string name="msg_firebase_no_update">Document no Updated</string>
+    <string name="msg_firebase_update">Document Updated</string>
+    <string name="msg_firebase_no_delete">Document no Deleted</string>
+    <string name="msg_firebase_delete">Document Deleted</string>
+    <string name="error">Error</string>
+    <string name="msg_actualizarP">Ride Updated</string>
+    <string name="msg_agregarP">Ride Added</string>
+    <string name="register">check in</string>
+    <string name="Login">Log in</string>
+
+    <string name="msg_imagen">Pet\'s image</string>
+    <string name="msg_graba_pausa">Record audio note</string>
+    <string name="msg_escucha_audio">Listen audio note</string>
+    <string name="msg_delete_nota">Delete audio note</string>
+    <string name="msg_rec_stop_nota">Record or stop audio note</string>
+    <string name="msg_take_photo">Take picture</string>
+    <string name="msg_rotate_l">Rotate left</string>
+    <string name="msg_rotale_r">Rotate right</string>
+    <string name="msg_graba_audio">Recording audio note</string>
+    <string name="msg_detener_audio">Audio note stopped</string>
+    <string name="msg_subiendo_audio">Uploading audio note</string>
+    <string name="msg_subiendo_imagen">Uploading image</string>
+</resources>
