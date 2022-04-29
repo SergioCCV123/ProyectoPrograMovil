@@ -8,18 +8,74 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.petitadmin.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/menu_paseos"
+        tools:layout="@layout/fragment_paseos" >
+        <action
+            android:id="@+id/action_nav_home_to_add_paseos"
+            app:destination="@id/add_paseos" />
+        <action
+            android:id="@+id/action_nav_home_to_update_paseos"
+            app:destination="@id/update_paseos" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.petitadmin.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.example.petitadmin.ui.gallery.FacturaFragment"
+        android:label="@string/menu_paseos"
+        tools:layout="@layout/fragment_factura" >
+        <action
+            android:id="@+id/action_nav_gallery_to_update_factura"
+            app:destination="@id/update_factura" />
+        <action
+            android:id="@+id/action_nav_gallery_to_add_factura"
+            app:destination="@id/add_factura" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.petitadmin.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/add_paseos"
+        android:name="com.example.petitadmin.ui.home.add_paseos"
+        android:label="fragment_add_paseos"
+        tools:layout="@layout/fragment_add_paseos" >
+        <action
+            android:id="@+id/action_add_paseos_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/update_paseos"
+        android:name="com.example.petitadmin.ui.home.update_paseos"
+        android:label="fragment_update_paseos"
+        tools:layout="@layout/fragment_update_paseos" >
+        <action
+            android:id="@+id/action_update_paseos_to_nav_home"
+            app:destination="@id/nav_home" />
+        <argument
+            android:name="paseos"
+            app:argType="com.example.petitadmin.model.Paseos" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_factura"
+        android:name="com.example.petitadmin.add_factura"
+        android:label="fragment_add_factura"
+        tools:layout="@layout/fragment_add_factura" >
+        <action
+            android:id="@+id/action_add_factura_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+    </fragment>
+    <fragment
+        android:id="@+id/update_factura"
+        android:name="com.example.petitadmin.update_factura"
+        android:label="fragment_update_factura"
+        tools:layout="@layout/fragment_update_factura" >
+        <action
+            android:id="@+id/action_update_factura_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+        <argument
+            android:name="factura"
+            app:argType="com.example.petitadmin.model.Factura" />
+    </fragment>
 </navigation>

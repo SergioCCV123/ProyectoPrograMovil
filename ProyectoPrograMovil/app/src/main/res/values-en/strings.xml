@@ -20,8 +20,8 @@
 
     <string name="msg_nombre">Pet\'s name</string>
     <string name="msg_edad">Pet\'s age</string>
-    <string name="msg_hInicio">Start time</string>
-    <string name="msg_hFinal">Finish time</string>
+    <string name="msg_hInicio">hour</string>
+    <string name="msg_hFinal">minutes</string>
     <string name="msg_raza">pet breed</string>
     <string name="msg_total">TOTAL</string>
     <string name="bt_agregar">Add pet</string>
